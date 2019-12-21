@@ -11,7 +11,7 @@ public class AsIntStreamTest {
 
     @Before
     public void init() {
-        int[] intArr = { -1, 0, 1, 2, 3 };
+        int[] intArr = { 0, -1, 1, 2, 3 };
         intStream = AsIntStream.of(intArr);
     }
 
@@ -77,7 +77,7 @@ public class AsIntStreamTest {
 
     @Test
     public void testToArray() {
-        int expResult[] = { -1, 0, 1, 2, 3 };
+        int expResult[] = { 0,-1, 1, 2, 3 };
         int result[] = intStream.toArray();
         assertArrayEquals(expResult, result);
         // Test if stream reloads after terminal methods

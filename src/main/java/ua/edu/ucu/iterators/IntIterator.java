@@ -29,5 +29,5 @@ public abstract class IntIterator implements Iterator<Integer> {
     protected abstract void setNext();
 
     public abstract void reset();
-    
+
 }

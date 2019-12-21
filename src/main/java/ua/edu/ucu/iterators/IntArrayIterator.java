@@ -21,7 +21,7 @@ public class IntArrayIterator extends IntIterator {
         }
     }
 
-    public void reset(){
+    public void reset() {
         index = 0;
         setNext();
     }
