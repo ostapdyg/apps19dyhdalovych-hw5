@@ -18,4 +18,10 @@ public class IntMapIterator extends IntIterator {
         }
     }
 
+    @Override
+    public void reset() {
+        iterator.reset();
+        setNext();
+    }
+
 }

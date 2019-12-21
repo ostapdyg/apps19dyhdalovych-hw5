@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 /**
  * IntStreamIterator
  */
-public class IntIterator implements Iterator<Integer> {
+public abstract class IntIterator implements Iterator<Integer> {
     protected Integer toReturn = null;
 
     @Override
@@ -18,14 +18,16 @@ public class IntIterator implements Iterator<Integer> {
     public Integer next() {
         if (!hasNext()) {
             throw new NoSuchElementException();
+        } else {
+            Integer res = toReturn;
+            toReturn = null;
+            setNext();
+            return res;
         }
-        Integer res = toReturn;
-        toReturn = null;
-        setNext();
-        return res;
     }
 
-    protected void setNext() {
-    }
+    protected abstract void setNext();
 
+    public abstract void reset();
+    
 }

@@ -24,4 +24,10 @@ public class IntFilterIterator extends IntIterator {
             }
         }
     }
+
+    @Override
+    public void reset() {
+        iterator.reset();
+        setNext();
+    }
 }

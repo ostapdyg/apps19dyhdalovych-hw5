@@ -34,6 +34,7 @@ public class AsIntStream implements IntStream {
             sum += iterator.next();
             n += 1;
         }
+        reset();
         return Double.valueOf((double) sum / n);
     }
 
@@ -83,6 +84,7 @@ public class AsIntStream implements IntStream {
         while (iterator.hasNext()) {
             action.accept(iterator.next());
         }
+        reset();
     }
 
     @Override
@@ -101,8 +103,8 @@ public class AsIntStream implements IntStream {
         while (iterator.hasNext()) {
             res = op.apply(res, iterator.next());
         }
+        reset();
         return res;
-
     }
 
     @Override
@@ -115,7 +117,11 @@ public class AsIntStream implements IntStream {
         for (int i = 0; i < resList.size(); i++) {
             res[i] = resList.get(i);
         }
+        reset();
         return res;
     }
 
+    public void reset(){
+        iterator.reset();
+    }
 }

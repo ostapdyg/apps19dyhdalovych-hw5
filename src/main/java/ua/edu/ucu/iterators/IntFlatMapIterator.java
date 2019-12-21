@@ -34,4 +34,12 @@ public class IntFlatMapIterator extends IntIterator {
         }
     }
 
+    @Override
+    public void reset() {
+        iterator.reset();
+        index = 0;
+        setNextStream();
+        setNext();
+    }
+
 }
