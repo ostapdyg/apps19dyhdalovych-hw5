@@ -3,35 +3,35 @@ package ua.edu.ucu.iterators;
 import ua.edu.ucu.function.IntToIntStreamFunction;
 
 public class IntFlatMapIterator extends IntIterator {
-    private int[] cur_stream = {};
+    private int[] curStream = {};
     private IntToIntStreamFunction func;
     private IntIterator iterator;
-    private int index=0;
+    private int index = 0;
 
-    public IntFlatMapIterator(IntIterator iterator, IntToIntStreamFunction func) {
+    public IntFlatMapIterator(IntIterator iterator,
+                              IntToIntStreamFunction func) {
         this.func = func;
         this.iterator = iterator;
         setNextStream();
         setNext();
     }
-    
-    protected void setNext(){
-        if(index==cur_stream.length){
-            cur_stream = new int[0];
+
+    protected void setNext() {
+        if (index == curStream.length) {
+            curStream = new int[0];
             setNextStream();
             index = 0;
         }
-        if(index<cur_stream.length){
-            to_return = cur_stream[index];
+        if (index < curStream.length) {
+            toReturn = curStream[index];
             index += 1;
         }
     }
 
-    private void setNextStream(){
-        if(iterator.hasNext()){
-            cur_stream = func.applyAsIntStream(iterator.next()).toArray();
+    private void setNextStream() {
+        if (iterator.hasNext()) {
+            curStream = func.applyAsIntStream(iterator.next()).toArray();
         }
     }
-
 
 }

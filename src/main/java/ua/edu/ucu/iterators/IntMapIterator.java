@@ -12,10 +12,10 @@ public class IntMapIterator extends IntIterator {
         setNext();
     }
 
-    protected void setNext(){
-        if(iterator.hasNext()){
-            to_return = mapper.apply(iterator.next());
+    protected void setNext() {
+        if (iterator.hasNext()) {
+            toReturn = mapper.apply(iterator.next());
         }
     }
-    
+
 }

@@ -6,27 +6,26 @@ import java.util.NoSuchElementException;
 /**
  * IntStreamIterator
  */
-public class IntIterator implements Iterator<Integer>{
-    protected Integer to_return=null;
+public class IntIterator implements Iterator<Integer> {
+    protected Integer toReturn = null;
 
     @Override
     public boolean hasNext() {
-        return to_return!=null;
+        return toReturn != null;
     }
 
     @Override
     public Integer next() {
-        if(!hasNext()){
+        if (!hasNext()) {
             throw new NoSuchElementException();
         }
-        Integer res = to_return;
-        to_return = null;
+        Integer res = toReturn;
+        toReturn = null;
         setNext();
         return res;
     }
 
-    
-    protected void setNext(){
+    protected void setNext() {
     }
 
 }

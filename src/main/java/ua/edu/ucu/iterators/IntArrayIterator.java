@@ -16,7 +16,7 @@ public class IntArrayIterator extends IntIterator {
 
     protected void setNext() {
         if (index < values.length) {
-            to_return = (Integer) values[index];
+            toReturn = (Integer) values[index];
             index++;
         }
     }
